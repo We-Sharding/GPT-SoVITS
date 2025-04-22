@@ -153,6 +153,7 @@ def inference(text, text_lang,
         "sample_steps": int(sample_steps),
         "super_sampling": super_sampling,
     }
+    print(f"Inference settings: top_k={top_k}, top_p={top_p}, temperature={temperature}, speed={speed_factor}, how_to_cut='{cut_method[text_split_method]}', ref_free={ref_text_free}, sample_steps={sample_steps}, pause={fragment_interval}")
     try:
         for item in tts_pipeline.run(inputs):
             yield item, actual_seed

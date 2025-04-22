@@ -512,6 +512,25 @@ def audio_sr(audio,sr):
 cache= {}
 def get_tts_wav(ref_wav_path, prompt_text, prompt_language, text, text_language, how_to_cut=i18n("不切"), top_k=20, top_p=0.6, temperature=0.6, ref_free = False,speed=1,if_freeze=False,inp_refs=None,sample_steps=8,if_sr=False,pause_second=0.3):
     global cache
+    # Enhanced logging with comprehensive settings information
+    print("=" * 50)
+    print("DETAILED INFERENCE LOG")
+    print("=" * 50)
+    print(f"SETTINGS:")
+    print(f"▸ Text language: {text_language}")
+    print(f"▸ Prompt language: {prompt_language}")
+    print(f"▸ Text segmentation: '{how_to_cut}'")
+    print(f"▸ Model parameters: top_k={top_k}, top_p={top_p}, temperature={temperature}")
+    print(f"▸ Speed: {speed}x")
+    print(f"▸ Reference-free mode: {ref_free}")
+    print(f"▸ Sample steps: {sample_steps}")
+    print(f"▸ Segment pause: {pause_second}s")
+    print(f"▸ Super-resolution: {if_sr}")
+    print(f"▸ Using cached results: {if_freeze}")
+    print(f"▸ Number of additional refs: {len(inp_refs) if inp_refs else 0}")
+    print(f"▸ Model version: {model_version}")
+    print("=" * 50)
+    
     if ref_wav_path:pass
     else:gr.Warning(i18n('请上传参考音频'))
     if text:pass
